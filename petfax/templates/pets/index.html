@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>PetFax</title>
+  </head>
+  <body>
+      <div class="container">
+          <h1>Welcome to PetFax</h1>
+          {% for pet in pets %}
+          <div class="pets">
+              <h2>{{ pet.pet_name }}</h2>
+              <img src="{{ pet.pet_photo }}" alt="Photo of pet" />
+              <div>
+                  <a href="/pets/{{ pet.pet_id }}"><b>Learn More</b></a>
+              </div>
+          </div>
+              {% endfor %}
+          <p>We'd love to learn more facts. <a href="/facts/new">Submit more facts</a></p>
+      </div>
+  </body>
+</html>
